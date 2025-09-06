@@ -1,6 +1,6 @@
 [package]
-name = "examples_hello_hachimi"
-version = "0.2.0"
+name = "CarrotBlender"
+version = "0.1.0"
 edition = "2021"
 
 [lib]
@@ -8,9 +8,11 @@ crate-type = ["cdylib"]
 
 [dependencies]
 hachimi_plugin_sdk = { path = "../..", version = "*" }
+lazy_static = "1.5.0"
 log = "0.4"
+java-properties = "2.0.0"
 
 [features]
-default = ["il2cpp"]
+default = ["il2cpp_2020"]
 il2cpp = ["hachimi_plugin_sdk/il2cpp"]
 il2cpp_2020 = ["hachimi_plugin_sdk/il2cpp_2020"]
