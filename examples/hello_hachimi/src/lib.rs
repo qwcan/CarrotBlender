@@ -20,7 +20,7 @@ static mut FROM_BASE_64_STRING_ORIG: usize = 0;
 static mut CREATE_DECRYPTOR_ORIG: usize = 0;
 static mut WRITE_ORIG: usize = 0;
 
-static VERSION: &str = "0.1.0";
+static VERSION: &str = "0.2.0";
 
 
 static CONFIG_DIRECTORY: &str = "CarrotBlender";
