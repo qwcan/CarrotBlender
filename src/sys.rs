@@ -52,7 +52,7 @@ pub struct Vtable {
     #[cfg(feature = "il2cpp_api")] pub il2cpp_get_method_overload_addr: unsafe extern "C" fn(
         class: *mut Il2CppClass, name: *const c_char, params: *const Il2CppTypeEnum, param_count: usize
     ) -> *mut c_void,
-        #[cfg(feature = "il2cpp_api")] pub il2cpp_get_method_cached: unsafe extern "C" fn(
+    #[cfg(feature = "il2cpp_api")] pub il2cpp_get_method_cached: unsafe extern "C" fn(
         class: *mut Il2CppClass, name: *const c_char, args_count: i32
     ) -> *const MethodInfo,
     #[cfg(feature = "il2cpp_api")] pub il2cpp_get_method_addr_cached: unsafe extern "C" fn(
@@ -61,6 +61,14 @@ pub struct Vtable {
     #[cfg(feature = "il2cpp_api")] pub il2cpp_find_nested_class: unsafe extern "C" fn(
         class: *mut Il2CppClass, name: *const c_char
     ) -> *mut Il2CppClass,
+
+    #[cfg(feature = "il2cpp_api")] pub il2cpp_resolve_icall: unsafe extern "C" fn(
+        name: *const c_char
+    ) -> *mut c_void,
+    #[cfg(feature = "il2cpp_api")] pub il2cpp_class_get_methods: unsafe extern "C" fn(
+        class: *mut Il2CppClass, iter: *mut *mut c_void
+    ) -> *const MethodInfo,
+
     #[cfg(feature = "il2cpp_api")] pub il2cpp_get_field_from_name: unsafe extern "C" fn(
         class: *mut Il2CppClass, name: *const c_char
     ) -> *mut FieldInfo,
@@ -76,6 +84,11 @@ pub struct Vtable {
     #[cfg(feature = "il2cpp_api")] pub il2cpp_set_static_field_value: unsafe extern "C" fn(
         field: *mut FieldInfo, value: *const c_void
     ),
+
+    #[cfg(feature = "il2cpp_api")] pub il2cpp_object_new: unsafe extern "C" fn(
+        class: *mut Il2CppClass
+    ) -> *mut Il2CppObject,
+
     #[cfg(feature = "il2cpp_api")] pub il2cpp_unbox: unsafe extern "C" fn(obj: *mut Il2CppObject) -> *mut c_void,
     #[cfg(feature = "il2cpp_api")] pub il2cpp_get_main_thread: unsafe extern "C" fn() -> *mut Il2CppThread,
     #[cfg(feature = "il2cpp_api")] pub il2cpp_get_attached_threads: unsafe extern "C" fn(out_size: *mut usize) -> *mut *mut Il2CppThread,
